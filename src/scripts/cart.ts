@@ -10,4 +10,8 @@ export default class Cart {
     getItems() {
         return this.items;
     }
+
+    removeItem(id: number) {
+        this.items = this.items.filter(item => Movie.getId(item) !== id);
+    }
 }

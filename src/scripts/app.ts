@@ -15,5 +15,17 @@ export default class App {
     public getCartItems() {
         return this.cart.getItems();
     }
+
+    public getCartPrice() {
+        return this.cart.getItems().reduce((acc, movie) => acc + Movie.getPrice(movie), 0);
+    }
+
+    public getCartPriceWithDiscount(discount: number) {
+        return this.getCartPrice() * (1 - discount);
+    }
+
+    public removeItem(id: number) {
+        this.cart.removeItem(id);
+    }
 }
 

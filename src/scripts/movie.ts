@@ -6,8 +6,10 @@ export default class Movie {
     private slogan: string;
     private genres: string[];
     private duration: string | number;
+    private price: number;
+    private id: number;
 
-    constructor(title: string, enTitle: string, year: number, country: string, slogan: string, genres: string[], duration: string | number) {
+    constructor(title: string, enTitle: string, year: number, country: string, slogan: string, genres: string[], duration: string | number, price: number, id: number) {
         this.title = title;
         this.enTitle = enTitle;
         this.year = year;
@@ -15,6 +17,8 @@ export default class Movie {
         this.slogan = slogan;
         this.genres = genres;
         this.duration = duration;
+        this.price = price;
+        this.id = id;
     }
 
     public getInfo() {
@@ -25,12 +29,22 @@ export default class Movie {
             country: this.country,
             slogan: this.slogan,
             genres: this.genres,
-            duration: this.duration
+            duration: this.duration,
+            price: this.price,
+            id: this.id
         }
         return info
     }
 
-    public static createMovie(title: string, enTitle: string, year: number, country: string, slogan: string, genres: string[], duration: string | number) {
-        return new Movie(title, enTitle, year, country, slogan, genres, duration);
+    public static createMovie(title: string, enTitle: string, year: number, country: string, slogan: string, genres: string[], duration: string | number, price: number, id: number) {
+        return new Movie(title, enTitle, year, country, slogan, genres, duration, price, id);
+    }
+
+    public static getPrice(movie: Movie) {
+        return movie.price;
+    }
+
+    public static getId(movie: Movie) {
+        return movie.id;
     }
 }
